@@ -4,11 +4,70 @@
     box-sizing: border-box;
 }
 
+.heading{
+    background-color: black;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    color:white;
+}
+
 .mainContainer{
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 20px dashed palevioletred;
+}
+
+.container{
+    width: 70vw;
+    height: 80vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+.upper,.lower{
+    display: flex;
+}
+
+.image{
+    border:1px solid black;
+    box-sizing: border-box;
+}
+
+.first{
+    width: 20vw;
+    height: 50vh;
+    background-image: url('https://random.imagecdn.app/500/500');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.second{
+    width: 30vw;
+    height: 50vh;
+    background-image: url('https://random.imagecdn.app/501/501');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.third{
+    width: 20vw;
+    height: 50vh;
+    background-image: url('https://random.imagecdn.app/502/502');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.fourth{
+    width: 35vw;
+    height: 30vh;
+    background-image: url('https://random.imagecdn.app/500/200');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.fifth{
+    width: 35vw;
+    height: 30vh;
+    background-image: url('https://random.imagecdn.app/501/200');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
