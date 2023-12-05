@@ -1,20 +1,30 @@
-let arr=[];
-function getData(category) {
-  fetch("https://api.api-ninjas.com/v1/randomimage?category=" + category, {
-    method: "GET",
-    headers: {
-      "X-Api-Key": "vXZ6o4ze/FxRWzFMDZH/1g==W3KWv1qPvqvqjwUg",
-      Accept: "image/jpg",
-    },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+const apiKey = 'bo5FuOwf5QmN8BP5Zz6J0DcgDuu54gtVzlFjiuzOlPfCA7yHsV2FwQlG'; // Replace 'YOUR_API_KEY' with your actual Pexels API key
+const numberOfPhotos = 5;
+const apiUrl = `https://api.pexels.com/v1/curated?per_page=${numberOfPhotos}`;
+
+const setImages = async () => {
+  try {
+    const response = await fetch(apiUrl, {
+      headers: {
+        Authorization: apiKey
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok.');
     }
-    console.log(response)
-    })
+
+    const data = await response.json();
+    const photos = data.photos.map(photo => photo.src.original);
+
+    const imageElements = document.querySelectorAll('.image');
+    imageElements.forEach((element, index) => {
+      element.style.backgroundImage = `url(${photos[index]})`;
+      element.style.backgroundSize = 'contain';
+    });
+  } catch (error) {
+    console.error('Error setting images:', error);
+  }
 };
-for(let i=0;i<4;i++) {
-    // getData("nature");
-}
-console.log(arr);
+
+setImages();
